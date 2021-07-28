@@ -3,6 +3,7 @@ const tail = require('./tail');
 const map = require('./map');
 const max = require('./max');
 const min = require('./min');
+const filter = require('./filter');
 
 describe('Head', () => {
 
@@ -44,6 +45,30 @@ describe('Map', () => {
 
     it('map of array [{x : 10},{x : 13}] as object is [11,14]', () => {
         expect(map([{x : 10},{x : 13}],'object')).toEqual([11,14]);
+    });
+
+})
+
+describe('Filter', () => {
+
+    it('filter of array [] as x >= true is []', () => {
+        expect(filter([],'>= true')).toEqual([]);
+    });
+
+    it('filter of array [1,2,3] as x => true is [1,2,3]', () => {
+        expect(filter([1,2,3],' == true')).toEqual([1,2,3]);
+    });
+
+    it('filter of array [1,2,3] as x => false is []', () => {
+        expect(filter([1,2,3],' == false')).toEqual([]);
+    });
+
+    it('filter of array [1,2,3] as x > 1 is [2,3]', () => {
+        expect(filter([1,2,3]," > 1")).toEqual([2,3]);
+    });
+
+    it(`filter of array ['a','B','c','D'] as filterUpperCase is [B,D]`, () => {
+        expect(filter(['a','B','c','D'],"filterUpperCase")).toEqual(['B','D']);
     });
 
 })

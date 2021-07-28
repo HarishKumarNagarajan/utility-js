@@ -20,17 +20,16 @@ const someObject = (inputArray) => {
 
 const map = (array,keyword) => {
     var result = [];
+    temp = [];
     switch(matchCondition[keyword]){
         case 1:
             result = cube(array);
-            temp = [];
             break;
         case 2:
             result = _.identity(array);
             break;
         case 3:
             result = someObject(array);
-            temp = [];
             break;
         default:
             result = undefined;
