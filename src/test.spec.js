@@ -1,6 +1,8 @@
 const head = require('./head');
 const tail = require('./tail');
 const map = require('./map');
+const max = require('./max');
+const min = require('./min');
 
 describe('Head', () => {
 
@@ -42,6 +44,22 @@ describe('Map', () => {
 
     it('map of array [{x : 10},{x : 13}] as object is [11,14]', () => {
         expect(map([{x : 10},{x : 13}],'object')).toEqual([11,14]);
+    });
+
+})
+
+describe('Max', () => {
+
+    it('max of array [1,2,3,4] is 4', () => {
+        expect(max([1,2,3,4])).toEqual(4);
+    });
+
+})
+
+describe('Min', () => {
+
+    it('min of array [1,2,3,4] is 1', () => {
+        expect(min([1,2,3,4])).toEqual(1);
     });
 
 })
