@@ -4,6 +4,7 @@ const map = require('./map');
 const max = require('./max');
 const min = require('./min');
 const filter = require('./filter');
+const reduce = require('./reduce');
 
 describe('Head', () => {
 
@@ -69,6 +70,26 @@ describe('Filter', () => {
 
     it(`filter of array ['a','B','c','D'] as filterUpperCase is [B,D]`, () => {
         expect(filter(['a','B','c','D'],"filterUpperCase")).toEqual(['B','D']);
+    });
+
+})
+
+describe('Reduce', () => {
+
+    it('reduce of array [] as (x,y)=>x+y is undefines', () => {
+        expect(reduce([])).toEqual(undefined);
+    });
+
+    it('reduce of array [] as v(x,y)=>x+y with start value 10 is 10', () => {
+        expect(reduce([],10)).toEqual(10);
+    });
+
+    it(`reduce of array ['a','b','c'] as (x,y)=>x+y is abc`, () => {
+        expect(reduce(['a','b','c'])).toEqual('abc');
+    });
+
+    it(`reduce of array ['a','b','c'] as (x,y)=>x+y with start value 'z' is zabc`, () => {
+        expect(reduce(['a','b','c'],'z')).toEqual('zabc');
     });
 
 })
