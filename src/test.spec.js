@@ -1,5 +1,6 @@
 const head = require('./head');
 const tail = require('./tail');
+const map = require('./map');
 
 describe('Head', () => {
 
@@ -21,6 +22,26 @@ describe('Tail', () => {
 
     it('tail of array [] is []', () => {
         expect(tail([])).toEqual([]);
+    });
+
+})
+
+describe('Map', () => {
+
+    it('map of array [] as cube is []', () => {
+        expect(map([],'cube')).toEqual([]);
+    });
+
+    it('map of array [1,2,3] as identity is [1,2,3]', () => {
+        expect(map([1,2,3],'identity')).toEqual([1,2,3]);
+    });
+
+    it('map of array [1,2,3] as cube is [1,8,27]', () => {
+        expect(map([1,2,3],'cube')).toEqual([1,8,27]);
+    });
+
+    it('map of array [{x : 10},{x : 13}] as object is [11,14]', () => {
+        expect(map([{x : 10},{x : 13}],'object')).toEqual([11,14]);
     });
 
 })
